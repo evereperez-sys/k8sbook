@@ -6,7 +6,7 @@
 npm init -y
 
 ## Instalar Express (para variables de entorno)
-npm install express dotenv
+npm install express 
 
 ###	Construir la imagen:
        docker build -t mi-api-node .
