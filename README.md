@@ -12,5 +12,9 @@ npm install express
        docker build -t mi-api-node .
 ###	Correr el contenedor:
        docker run -p 3000:3000 mi-api-node
+###    Instalacion de Helm
+       https://github.com/helm/helm/releases
+       Se busca el del SO
+
 
 

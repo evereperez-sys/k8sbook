@@ -1,0 +1,19 @@
+replicaCount: 2
+
+image:
+  repository: tu-usuario-docker/mi-microservicio
+  pullPolicy: IfNotPresent
+  # El pipeline de CI reemplazará este tag automáticamente
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 3000
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
