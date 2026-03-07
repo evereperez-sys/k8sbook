@@ -15,6 +15,49 @@ npm install express
 ###    Instalacion de Helm
        https://github.com/helm/helm/releases
        Se busca el del SO
+       PAra el caso de Windows se toma el binario y se recomienda renombrarlo por un nombre mas corto 
+       carpeta sujerida c:\bin, se debe adicionar esa ruta a la variable de entorno PATH de Windows.
+
+       Luego se ejecuta la sentencia 
+
+###    Instalacion de Argo CD
+       https://github.com/argoproj/argo-cd/releases
+       Se busca el del SO       
+       PAra el caso de Windows se toma el binario y se recomienda renombrarlo por un nombre mas corto
+       carpeta sujerida c:\bin , la cual ya esta declarada en el path del SO.
+       Se pasa a crear el namespace en Kubernetes 
+          Commando: 
+            # 1. Crear el namespace argocd
+                 kubectl create namespace argocd
+
+           # 2. Aplicar el manifiesto de instalación de ArgoCD
+                 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+          Imagen desde Lens validando su creacion
+          ![namespace ArgoCd](./imagenes/argocd_namespace.png)
+
+          Pasos post-instalación:
+              - Verificar componentes            : kubectl get pods -n argocd
+                ![PODS ArgoCd](./imagenes/argocd_pods.png)
+              - Obtener contraseña inicial       : el usuario siempre es admin
+                  Para Linux = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+                  Para Windows:  $pass = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
+                                 [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($pass))
+
+                 Clave: Awa2DGOVK2JefAlo
+
+              - Acceder a la interfaz            : Ejecuta kubectl port-forward svc/argocd-server -n argocd 8080:443 y abre https://localhost:8080
+                 ![LOGIN ArgoCd](./imagenes/argocd_login.png) 
+
+
+|Paso|Acción|Herramienta|Resultado|
+|1|Programar API|IDE (VS Code)|Código fuente|
+2|Empaquetar|Docker|Imagen en Docker Hub|
+3|Orquestar|Helm|Manifiestos reutilizables|
+4|Automatizar CI|GitHub Actions|Pipeline que dispara el cambio|
+5|Sincronizar CD|ArgoCD|Estado deseado == Estado real|                 
+
+
 
 
 

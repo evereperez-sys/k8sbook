@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mi-app-helm
+  namespace: argocd # Namespace donde vive ArgoCD
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/evereperez-sys/k8sbook.git' # URL de tu repo Git
+    targetRevision: HEAD # Rama (ej. main, master) o tag
+    path: charts/mi-app # Ruta dentro del repo donde está el Chart.yaml
+    helm:
+      valueFiles:
+        - values.yaml # Fichero de valores opcional
+  destination:
+    server: 'https://kubernetes.default.svc' # Clúster destino
+    namespace: mi-app-namespace # Namespace donde desplegar
+  syncPolicy:
+    automated: # Sincronización automática
+      prune: true
+      selfHeal: true
