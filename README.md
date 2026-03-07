@@ -27,18 +27,17 @@ npm install express
        carpeta sujerida c:\bin , la cual ya esta declarada en el path del SO.
        Se pasa a crear el namespace en Kubernetes 
           Commando: 
-            # 1. Crear el namespace argocd
+             1. Crear el namespace argocd
                  kubectl create namespace argocd
 
-           # 2. Aplicar el manifiesto de instalación de ArgoCD
+             2. Aplicar el manifiesto de instalación de ArgoCD
                  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
           Imagen desde Lens validando su creacion
-          ![namespace ArgoCd](./imagenes/argocd_namespace.png)
-
+          ![namespace ArgoCd](imagenes/argocd_namespace.png)
           Pasos post-instalación:
               - Verificar componentes            : kubectl get pods -n argocd
-                ![PODS ArgoCd](./imagenes/argocd_pods.png)
+                ![PODS ArgoCd](imagenes/argocd_pods.png)
               - Obtener contraseña inicial       : el usuario siempre es admin
                   Para Linux = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
                   Para Windows:  $pass = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
