@@ -35,6 +35,7 @@ npm install express
 
           Imagen desde Lens validando su creacion
           ![namespace ArgoCd](imagenes/argocd_namespace.png)
+          ![Logo de Markdown](https://www.markdownlang.com/static/images/logo.png "Logo de Markdown")
           Pasos post-instalación:
               - Verificar componentes            : kubectl get pods -n argocd
                 ![PODS ArgoCd](imagenes/argocd_pods.png)
@@ -49,12 +50,8 @@ npm install express
                  ![LOGIN ArgoCd](./imagenes/argocd_login.png) 
 
 
-|Paso|Acción|Herramienta|Resultado|
-|1|Programar API|IDE (VS Code)|Código fuente|
-2|Empaquetar|Docker|Imagen en Docker Hub|
-3|Orquestar|Helm|Manifiestos reutilizables|
-4|Automatizar CI|GitHub Actions|Pipeline que dispara el cambio|
-5|Sincronizar CD|ArgoCD|Estado deseado == Estado real|                 
+
+
 
 
 
