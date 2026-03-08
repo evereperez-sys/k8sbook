@@ -1,4 +1,4 @@
 apiVersion: v2
-name: miapp    
-version: 0.1.0
+name: mi-app    
+version: 1.0.1
 description: Mi aplicación en Kubernetes
