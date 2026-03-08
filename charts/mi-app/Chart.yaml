@@ -1,0 +1,4 @@
+apiVersion: v2
+name: miapp    
+version: 0.1.0
+description: Mi aplicación en Kubernetes
