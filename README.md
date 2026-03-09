@@ -83,6 +83,30 @@ Helm
       Acceder a la interfaz            : Ejecuta kubectl port-forward svc/argocd-server -n argocd 8080:443 y abre https://localhost:8080
    ![LOGIN ArgoCd](./imagenes/argocd_login.png) 
 
+###    Instlacion de NGINX Ingress Controller en Docker Desktop
+
+Para instalar el NGINX Ingress Controller en Docker Desktop, habilita Kubernetes en la configuración, asegura que el puerto 80 esté libre y aplica el manifiesto oficial con: 
+
+ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.2/deploy/static/provider/cloud/deploy.yaml. 
+ Verifica la instalación con 
+  kubectl get pods -n ingress-nginx. 
+blueshoe
+blueshoe
+ +3
+Pasos detallados para instalar Ingress Controller:
+Habilitar Kubernetes: Abre Docker Desktop, ve a Settings > Kubernetes y marca Enable Kubernetes.
+Verificar contexto: Asegúrate de que kubectl esté apuntando a Docker Desktop ejecutando kubectl config use-context docker-desktop.
+Instalar NGINX Ingress: Ejecuta el siguiente comando en tu terminal para aplicar el controlador oficial:
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.2/deploy/static/provider/cloud/deploy.yaml.
+Verificar la instalación: Ejecuta kubectl get pods -n ingress-nginx para confirmar que los pods estén en estado "Running".
+Acceso: El controlador se enlaza a los puertos 80 y 443 de tu equipo local, por lo que no necesitas configurar un LoadBalancer externo. 
+blueshoe
+blueshoe
+ +3
+Notas importantes:
+El controlador de ingreso de NGINX se usa frecuentemente en Docker Desktop para gestionar el tráfico hacia los servicios.
+Asegúrate de que no haya otros servicios ejecutándose en el puerto 80 de tu máquina local
+
 
    ### Estructura del proyecto
 
