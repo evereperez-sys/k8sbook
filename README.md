@@ -1,24 +1,54 @@
-# ACTIVIDAD 3 G8S
+# PRUEBA PERSONAL K8S
 
+## Descripción: 
 
+El trabajo involucra la creación de microservicios individualmente desplegables, utilizando 
+contenedores Docker, un orquestador de contenedores como Kubernetes y herramientas 
+como Helm para la gestión de paquetes y configuraciones.  
+Pasos:  
+Trabaje con un microservicio básico. Diseñar los contenedores Docker para el microservicio 
+incluyendo la configuración necesaria.  
+Despliegue con Helm:  
+Crear charts de Helm el microservicio, especificando los valores y configuraciones 
+necesarias.  
+Utilizar valores por defecto y overrides para personalizar las configuraciones según el 
+entorno.  
+Implementación de ArgoCD:  
+Desplegar ArgoCD en el clúster de Kubernetes.  
+Configurar repositorios Git como fuentes de definición de la aplicación.  
+Definir aplicación en ArgoCD para el microservicio, utilizando los charts de Helm.  
+Automatización con Pipelines:  
+Cree los pipelines necesarios para desplegar el aplicativo en el momento de detectar un 
+commit sobre la rama que configure, Configurando pipelines de CI/CD para automatizar el 
+proceso de construcción y despliegue del microservicio.  
+Acá pondrá en práctica:  
+Docker  
+Kubernetes  
+Herramienta de CI que escoja  
+ArgoCD  
+Helm 
 
-## Inicializar el proyecto (crea el archivo package.json)
-npm init -y
+### Inicializar el proyecto (crea el archivo package.json)
+    npm init -y
 
-## Instalar Express (para variables de entorno)
-npm install express 
+### Instalar Express (para variables de entorno)
+
+    npm install express 
 
 ###	Construir la imagen:
        docker build -t mi-api-node .
+
 ###	Correr el contenedor:
        docker run -p 3000:3000 mi-api-node
+
 ###    Instalacion de Helm
        https://github.com/helm/helm/releases
        Se busca el del SO
        PAra el caso de Windows se toma el binario y se recomienda renombrarlo por un nombre mas corto 
        carpeta sujerida c:\bin, se debe adicionar esa ruta a la variable de entorno PATH de Windows.
 
-       Luego se ejecuta la sentencia 
+       Luego se ejecuta la sentencia helm.exe y sus opciones para generar la estructura de yml
+
 
 ###    Instalacion de Argo CD
        https://github.com/argoproj/argo-cd/releases
@@ -47,10 +77,10 @@ npm install express
                  Clave: Awa2DGOVK2JefAlo
 
               - Acceder a la interfaz            : Ejecuta kubectl port-forward svc/argocd-server -n argocd 8080:443 y abre https://localhost:8080
-                 ![LOGIN ArgoCd](./imagenes/argocd_login.png) 
+                  ![LOGIN ArgoCd](./imagenes/argocd_login.png) 
 
 
-          # Estructura del proyecto
+   ### Estructura del proyecto
 
          ```                
 
