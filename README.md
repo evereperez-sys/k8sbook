@@ -63,28 +63,30 @@ Helm
              2. Aplicar el manifiesto de instalación de ArgoCD
                  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-          Imagen desde Lens validando su creacion
-          ![namespace ArgoCd](imagenes/argocd_namespace.png)
-          ![Logo de Markdown](https://www.markdownlang.com/static/images/logo.png "Logo de Markdown")
-          Pasos post-instalación:
-              - Verificar componentes            : kubectl get pods -n argocd
-                ![PODS ArgoCd](imagenes/argocd_pods.png)
-              - Obtener contraseña inicial       : el usuario siempre es admin
-                  Para Linux = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
-                  Para Windows:  $pass = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}"
-                                 [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($pass))
+*Imagenes desde Lens validando su creacion*
+          ![namespace ArgoCd](docs/images/argocd_namespace.png)
+          
+          
+  *Pasos post-instalación:*
+          
+   Verificar componentes: 
+  
+     kubectl get pods -n argocd.
+     
+ ![PODS ArgoCd](imagenes/argocd_pods.png)
+    Obtener contraseña inicial       : el usuario siempre es admin
+                  
+      Para Linux = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+      Para Windows:  $pass = kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($pass))
+      Clave: Awa2DGOVK2JefAlo
 
-                 Clave: Awa2DGOVK2JefAlo
-
-              - Acceder a la interfaz            : Ejecuta kubectl port-forward svc/argocd-server -n argocd 8080:443 y abre https://localhost:8080
-                  ![LOGIN ArgoCd](./imagenes/argocd_login.png) 
+      Acceder a la interfaz            : Ejecuta kubectl port-forward svc/argocd-server -n argocd 8080:443 y abre https://localhost:8080
+   ![LOGIN ArgoCd](./imagenes/argocd_login.png) 
 
 
    ### Estructura del proyecto
 
-         ```                
-
-         \---k8sbook
+     \---k8sbook
     |   .dockerignore
     |   application.yaml
     |   Dockerfile
