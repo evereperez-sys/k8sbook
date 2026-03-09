@@ -50,6 +50,45 @@ npm install express
                  ![LOGIN ArgoCd](./imagenes/argocd_login.png) 
 
 
+          # Estructura del proyecto
+
+         ```                
+
+         \---k8sbook
+    |   .dockerignore
+    |   application.yaml
+    |   Dockerfile
+    |   index.js
+    |   package-lock.json
+    |   package.json
+    |   README.md
+    |   
+    +---.github
+    |   \---workflows
+    |           docker-image.yml
+    |           
+    +---charts
+    |   \---mi-app
+    |       |   Chart.yaml
+    |       |   values.yaml
+    |       |   
+    |       \---templates
+    |               deployment.yaml
+    |               service.yaml
+    |               _helpers.tpl
+    |               
+    +---docs
+    |   \---images
+    |           argocd_exponerport.png
+    |           argocd_login.png
+    |           argocd_namespace.png
+    |           argocd_pods.png
+    |           
+    \---src
+            index.js
+            
+
+
 
 
 
